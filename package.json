@@ -1,0 +1,31 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "week 1 exercise - firstapp created with express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeighMcG83/server-side.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "weekly",
+    "worksheet"
+  ],
+  "author": "Leigh McGuinness",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeighMcG83/server-side/issues"
+  },
+  "homepage": "https://github.com/LeighMcG83/server-side#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
