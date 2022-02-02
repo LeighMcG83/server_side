@@ -46,13 +46,13 @@ var data = {
     "leigh": {
         "name": "Leigh",
         // "dob": "09/11/1983",
-        "imageurl": "/images/logo.png",
+        "imageurl": "/images/batman.jpg",
         "hobbies": ["Reading", "Philosophy", "Design"]
     },
     "paddy": {
         "name": "Paddy",
         "dob": "01/12/2022",
-        "imageurl": "/images/logo.png",
+        "imageurl": "/images/paddy.jpg",
         "hobbies": ["Cooking", "Gaming", "Football"]
     }
 };
