@@ -13,7 +13,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 
-// REFACTORED INTO SINGLE JSON OBJECT
+// ========== REFACTORED INTO SINGLE JSON OBJECT ========== //
+
 // var foil = {
 //     "name": "foil",
 //     "dob": "01/01/1998",
@@ -35,7 +36,7 @@ app.use(express.static('public'));
 //     "hobbies": ["Cooking", "Gaming", "Football"]
 // };
 
-let data = {
+var data = {
     "foil": {
         "name": "foil",
         "dob": "01/01/1998",
@@ -97,8 +98,11 @@ app.get('/paddy', (req, res) =>
         person: data.paddy
     }));
 
-// app.get('/foil', (req, res) => foil.name === "Leigh"
-// res.render('person', {person: foil}));
+app.get('/personlist', (req, res) =>
+    res.render('personlist', {
+        personlist: data
+    }))
+
 
 // // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {
