@@ -1,4 +1,5 @@
 const express = require('express');
+const res = require('express/lib/response');
 const app = express();
 const port = 3000;
 
@@ -15,6 +16,18 @@ app.use(express.static('public'));
 var foil = {
     "name": "foil",
     "dob": "01/01/1998",
+    "imageurl": "/images/logo.png"
+};
+
+var leigh = {
+    "name": "Leigh",
+    // "dob": "09/11/1983",
+    "imageurl": "/images/logo.png"
+};
+
+var paddy = {
+    "name": "Paddy",
+    "dob": "01/12/2022",
     "imageurl": "/images/logo.png"
 };
 
@@ -45,9 +58,23 @@ app.get('/help', (req, res) => {
     res.send('Good help is hard to find....Keep looking!!');
 });
 
-app.get('/foil', (req,res) => 
+app.get('/foil', (req, res) =>
+    res.render('person', {
+        person: foil
+    }));
 
-res.render('person', {person: foil} ))
+app.get('/leigh', (req, res) =>
+    res.render('person', {
+        person: leigh
+    }));
+
+app.get('/paddy', (req, res) =>
+    res.render('person', {
+        person: paddy
+    }));
+
+// app.get('/foil', (req, res) => foil.name === "Leigh"
+// res.render('person', {person: foil}));
 
 // // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {
