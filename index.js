@@ -13,27 +13,48 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 
-var foil = {
-    "name": "foil",
-    "dob": "01/01/1998",
-    "imageurl": "/images/logo.png",
-    "hobbies": ["Jokes", "Gags", "Stand up"]
-};
+// REFACTORED INTO SINGLE JSON OBJECT
+// var foil = {
+//     "name": "foil",
+//     "dob": "01/01/1998",
+//     "imageurl": "/images/logo.png",
+//     "hobbies": ["Jokes", "Gags", "Stand up"]
+// };
 
-var leigh = {
-    "name": "Leigh",
-    // "dob": "09/11/1983",
-    "imageurl": "/images/logo.png",
-    "hobbies": ["Reading", "Philosophy", "Design"]
-};
+// var leigh = {
+//     "name": "Leigh",
+//     // "dob": "09/11/1983",
+//     "imageurl": "/images/logo.png",
+//     "hobbies": ["Reading", "Philosophy", "Design"]
+// };
 
-var paddy = {
-    "name": "Paddy",
-    "dob": "01/12/2022",
-    "imageurl": "/images/logo.png",
-    "hobbies": ["Cooking", "Gaming", "Football"]
-};
+// var paddy = {
+//     "name": "Paddy",
+//     "dob": "01/12/2022",
+//     "imageurl": "/images/logo.png",
+//     "hobbies": ["Cooking", "Gaming", "Football"]
+// };
 
+let data = {
+    "foil": {
+        "name": "foil",
+        "dob": "01/01/1998",
+        "imageurl": "/images/logo.png",
+        "hobbies": ["Jokes", "Gags", "Stand up"]
+    },
+    "leigh": {
+        "name": "Leigh",
+        // "dob": "09/11/1983",
+        "imageurl": "/images/logo.png",
+        "hobbies": ["Reading", "Philosophy", "Design"]
+    },
+    "paddy": {
+        "name": "Paddy",
+        "dob": "01/12/2022",
+        "imageurl": "/images/logo.png",
+        "hobbies": ["Cooking", "Gaming", "Football"]
+    }
+};
 
 app.get('/', function (req, res) {
     res.render('home');
@@ -63,17 +84,17 @@ app.get('/help', (req, res) => {
 
 app.get('/foil', (req, res) =>
     res.render('person', {
-        person: foil
+        person: data.foil
     }));
 
 app.get('/leigh', (req, res) =>
     res.render('person', {
-        person: leigh
+        person: data.leigh
     }));
 
 app.get('/paddy', (req, res) =>
     res.render('person', {
-        person: paddy
+        person: data.paddy
     }));
 
 // app.get('/foil', (req, res) => foil.name === "Leigh"
