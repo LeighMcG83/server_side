@@ -45,7 +45,7 @@ var data = {
     },
     "leigh": {
         "name": "Leigh",
-        // "dob": "09/11/1983",
+        "dob": "09/11/1983",
         "imageurl": "/images/batman.jpg",
         "hobbies": ["Reading", "Philosophy", "Design"]
     },
