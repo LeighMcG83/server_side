@@ -23,13 +23,15 @@ var foil = {
 var leigh = {
     "name": "Leigh",
     // "dob": "09/11/1983",
-    "imageurl": "/images/logo.png"
+    "imageurl": "/images/logo.png",
+    "hobbies": ["Reading", "Philosophy", "Design"]
 };
 
 var paddy = {
     "name": "Paddy",
     "dob": "01/12/2022",
-    "imageurl": "/images/logo.png"
+    "imageurl": "/images/logo.png",
+    "hobbies": ["Cooking", "Gaming", "Football"]
 };
 
 
