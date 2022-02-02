@@ -16,7 +16,8 @@ app.use(express.static('public'));
 var foil = {
     "name": "foil",
     "dob": "01/01/1998",
-    "imageurl": "/images/logo.png"
+    "imageurl": "/images/logo.png",
+    "hobbies": ["Jokes", "Gags", "Stand up"]
 };
 
 var leigh = {
