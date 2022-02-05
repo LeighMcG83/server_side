@@ -1,27 +1,67 @@
 body {
+    background-color: #ededed;
+}
+
+main {
     margin: 5% 10%;
 }
+
+.section-heading {
+    margin-bottom: 3rem;
+}
+
+.logo-img {
+    width: 20%;
+    height: auto;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: 15px;
+    border: 0px;
+    background: linear-gradient(145deg, #d5d5d5, #fefefe);
+    box-shadow: 25px 25px 50px #d3d3d3,
+        -25px -25px 50px #ffffff;
+    margin: auto;
+}
+
+}
+
+
+.section-heading {
+    width: 50%;
+    margin-left: 25%;
+}
+
+
 
 .bg-blue {
     background-color: #14027a;
 }
 
 h1,
-h2 {
-    font-size: 2rem;
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
+    color: #6c6c6c;
 }
 
 h1 {
-    color: #3a3a3a;
-}
-
-h2 {
-    color: #6c6c6c;
+    font-size: 1.5em;
+    color: #2c2c2c;
+    font-weight: 600;
 }
 
 .profile-img {
     max-height: 250px;
-    width:auto;
+    width: auto;
+}
+
+.btn {
+    margin-top: 2em;
 }

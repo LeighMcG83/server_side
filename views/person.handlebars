@@ -1,20 +1,19 @@
-<h2> All about {{person.name}}</h2>
+<h2 class="h2 section-heading"> All about {{person.name}}</h2>
 
-<div class="card" style="width: 28rem;">
+<div class="card" style="width: 20rem;">
   <img src={{person.imageurl}} class="card-img-top" alt="Iimage of a person">
   <div class="card-body">
-    <h1 class="card-title">{{person.name}}</h1>
-      <h2 class="h2">Bio</h2>
+    <h1 class="card-title">Bio</h1>
       
         {{#if person.dob}}
-        <h3 class="h3">Date of Birth:</h3>
-        <p class="">{{person.dob}}</p>
+        <h3 class="h5 dob-heading">Date of Birth:</h3>
+        <p class="dob">{{person.dob}}</p>
         {{/if}}
 
         <p class="card-text">
           I am a UX designer by day, web tutor and philosopher by evening and a Dark Knight by nature
         </p>
-        <h3 class="h3">Hobbies</h3>
+        <h3 class="h5">Hobbies</h3>
         <ul class="list-group">
           {{#each person.hobbies}}
           <li class="list-group-item">{{this}}</li>
