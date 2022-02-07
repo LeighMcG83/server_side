@@ -3,6 +3,9 @@ const res = require('express/lib/response');
 const app = express();
 const port = 3000;
 
+// import the router from the home.js file
+const home = require('./routes/home')
+
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
     .create({
@@ -57,17 +60,18 @@ var data = {
     }
 };
 
-app.get('/', function (req, res) {
-    res.render('home');
-});
+// MOVED TO ROUTES.JS
+// app.get('/', function (req, res) {
+//     res.render('home');
+// });
 
-app.get('/about', function (req, res) {
-    res.render('about');
-});
+// app.get('/about', function (req, res) {
+//     res.render('about');
+// });
 
-app.get('/contact', function (req, res) {
-    res.render('contact');
-});
+// app.get('/contact', function (req, res) {
+//     res.render('contact');
+// });
 
 app.get('/help', function (req, res) {
     res.render('help');
@@ -104,13 +108,16 @@ app.get('/personlist', (req, res) =>
     }))
 
 
-// // 404 catch-all handler (middleware)
+// middleware 
+app.use('/', home);
+
+// 404 catch-all handler (middleware)
 app.use(function (req, res, next) {
     res.status(404);
     res.render('404');
 });
 
-// // 500 error handler (middleware)
+// 500 error handler (middleware)
 app.use(function (err, req, res, next) {
     console.error(err.stack);
     res.status(500);
