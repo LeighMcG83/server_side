@@ -5,6 +5,7 @@ const port = 3000;
 
 // import the router from the home.js file
 const home = require('./routes/home')
+const staff = require('./routes/staff')
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -60,7 +61,8 @@ var data = {
     }
 };
 
-// MOVED TO ROUTES.JS
+// ========== MOVED TO ROUTES.JS ========== //
+
 // app.get('/', function (req, res) {
 //     res.render('home');
 // });
@@ -73,43 +75,54 @@ var data = {
 //     res.render('contact');
 // });
 
-app.get('/help', function (req, res) {
-    res.render('help');
-});
+// ======================================== //
 
-app.get('/contact', (req, res) => {
-    res.type('text/plain');
-    res.send('Don\'t bother we never reply');
-});
 
-app.get('/help', (req, res) => {
-    res.type('text/plain');
-    res.send('Good help is hard to find....Keep looking!!');
-});
 
-app.get('/foil', (req, res) =>
-    res.render('person', {
-        person: data.foil
-    }));
+// ========== MOVED TO staff.js ========== //
 
-app.get('/leigh', (req, res) =>
-    res.render('person', {
-        person: data.leigh
-    }));
+// app.get('/help', function (req, res) {
+//     res.render('help');
+// });
 
-app.get('/paddy', (req, res) =>
-    res.render('person', {
-        person: data.paddy
-    }));
+// app.get('/contact', (req, res) => {
+//     res.type('text/plain');
+//     res.send('Don\'t bother we never reply');
+// });
 
-app.get('/personlist', (req, res) =>
-    res.render('personlist', {
-        personlist: data
-    }))
+// app.get('/help', (req, res) => {
+//     res.type('text/plain');
+//     res.send('Good help is hard to find....Keep looking!!');
+// });
 
+
+
+// app.get('/staff/foil', (req, res) =>
+//     res.render('person', {
+//         person: data.foil
+//     }));
+
+// app.get('/staff/leigh', (req, res) =>
+//     res.render('person', {
+//         person: data.leigh
+//     }));
+
+// app.get('/staff/paddy', (req, res) =>
+//     res.render('person', {
+//         person: data.paddy
+//     }));
+
+// app.get('/staff', (req, res) =>
+//     res.render('staff', {
+//         staff: data
+//     }))
+
+
+// ======================================== //
 
 // middleware 
 app.use('/', home);
+app.use('/staff', staff);
 
 // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {
