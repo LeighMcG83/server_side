@@ -44,9 +44,14 @@ router.get('/:name', (req, res) => {
     var name = req.params.name;
     res.render('person', {
         person: data[name]
-    })
+    });
+    res.end();
 })
 
+router.get('/personlist', (req, res) =>
+    res.render('personlist', {
+        personlist: data
+    }));
 
 router.get('/', (req, res) =>
     res.render('staff', {

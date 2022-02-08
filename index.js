@@ -40,26 +40,31 @@ app.use(express.static('public'));
 //     "hobbies": ["Cooking", "Gaming", "Football"]
 // };
 
-var data = {
-    "foil": {
-        "name": "foil",
-        "dob": "01/01/1998",
-        "imageurl": "/images/logo.png",
-        "hobbies": ["Jokes", "Gags", "Stand up"]
-    },
-    "leigh": {
-        "name": "Leigh",
-        "dob": "09/11/1983",
-        "imageurl": "/images/batman.jpg",
-        "hobbies": ["Reading", "Philosophy", "Design"]
-    },
-    "paddy": {
-        "name": "Paddy",
-        "dob": "01/12/2022",
-        "imageurl": "/images/paddy.jpg",
-        "hobbies": ["Cooking", "Gaming", "Football"]
-    }
-};
+// ========================================================= //
+
+
+// JSON obj 
+// NOTE: this object is duplicated in staff.js and used from there
+// var data = {
+//     "foil": {
+//         "name": "foil",
+//         "dob": "01/01/1998",
+//         "imageurl": "/images/logo.png",
+//         "hobbies": ["Jokes", "Gags", "Stand up"]
+//     },
+//     "leigh": {
+//         "name": "Leigh",
+//         "dob": "09/11/1983",
+//         "imageurl": "/images/batman.jpg",
+//         "hobbies": ["Reading", "Philosophy", "Design"]
+//     },
+//     "paddy": {
+//         "name": "Paddy",
+//         "dob": "01/12/2022",
+//         "imageurl": "/images/paddy.jpg",
+//         "hobbies": ["Cooking", "Gaming", "Football"]
+//     }
+// };
 
 // ========== MOVED TO ROUTES.JS ========== //
 
@@ -117,8 +122,12 @@ var data = {
 //         staff: data
 //     }))
 
-
 // ======================================== //
+
+app.get('/personlist', (req, res) =>
+    res.render('personlist', {
+        personlist: data
+    }))
 
 // middleware 
 app.use('/', home);
