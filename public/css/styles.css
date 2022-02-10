@@ -1,5 +1,11 @@
-body {
-    background-color: #ededed;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+header {
+    background-color: #f3f3f3;
 }
 
 main {
@@ -25,15 +31,10 @@ main {
     margin: auto;
 }
 
-}
-
-
 .section-heading {
     width: 50%;
     margin-left: 25%;
 }
-
-
 
 .bg-blue {
     background-color: #14027a;

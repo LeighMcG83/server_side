@@ -1,5 +1,6 @@
 // import express js and the router class
 const express = require('express');
+const res = require('express/lib/response');
 const router = express.Router();
 
 
@@ -25,28 +26,19 @@ var data = {
 };
 
 
-// router.get('/foil', (req, res) =>
-//     res.render('person', {
-//         person: data.foil
-//     }));
-
-// router.get('/leigh', (req, res) =>
-//     res.render('person', {
-//         person: data.leigh
-//     }));
-
-// router.get('/paddy', (req, res) =>
-//     res.render('person', {
-//         person: data.paddy
-//     }));
-
 router.get('/:name', (req, res) => {
     var name = req.params.name;
-    res.render('person', {
-        person: data[name]
-    });
-    res.end();
-})
+   
+    if (name === "") {
+        res.status(404);
+        res.render('/staff/404/');
+    }
+    else{
+        res.render('person', {
+            person: data[name]
+        });
+    }
+});
 
 router.get('/personlist', (req, res) =>
     res.render('personlist', {

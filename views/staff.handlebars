@@ -1,5 +1,6 @@
-<ul>
+<ul class="list-unstyled">
   {{#each staff}}
-    <li><a href="/staff/{{this.name}}">{{this.name}}</a></li>
+    <li class="list-inline-item me-5">
+      <a class="active nav-link" href="/staff/{{this.name}}">{{this.name}}</a></li>
   {{/each}}
 </ul>
