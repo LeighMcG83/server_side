@@ -5,6 +5,7 @@ const router = express.Router();
 
 // route handlers
 router.get('/', function (req, res) {
+    res.cookie('tracking', 'Look a cookie');
     res.render('home');
 });
 
