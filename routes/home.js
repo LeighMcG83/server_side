@@ -5,8 +5,18 @@ const router = express.Router();
 
 // route handlers
 router.get('/', function (req, res) {
+    var message = "";
+    console.table(req.cookies);
+    if (req.cookies.tracking) {
+        console.table('here');
+        console.table(req.cookies);
+        message = "Welcome back";
+    }
+
     res.cookie('tracking', 'Look a cookie');
-    res.render('home');
+    res.render('home', {
+        "message": message
+    });
 });
 
 router.get('/about', function (req, res) {

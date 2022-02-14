@@ -5,8 +5,8 @@ const port = 3000;
 const cookieParser = require('cookie-parser');
 
 // import the router from the home.js file
-const home = require('./routes/home')
-const staff = require('./routes/staff')
+const home = require('./routes/home');
+const staff = require('./routes/staff');
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -21,7 +21,7 @@ app.use(express.static('public'));
 app.get('/personlist', (req, res) =>
     res.render('personlist', {
         personlist: data
-    }))
+    }));
 
 // middleware 
 app.use(cookieParser());
