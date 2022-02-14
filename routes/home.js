@@ -8,8 +8,8 @@ router.get('/', function (req, res) {
     var message = "";
     console.table(req.cookies);
     if (req.cookies.tracking) {
-        console.table('here');
-        console.table(req.cookies);
+        // console.table('here');
+        // console.table(req.cookies);
         message = "Welcome back";
     }
 

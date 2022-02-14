@@ -25,6 +25,7 @@ app.get('/personlist', (req, res) =>
 
 // middleware 
 app.use(cookieParser());
+app.use(cookieParser("una is great"));
 app.use('/', home);
 app.use('/staff', staff);
 
