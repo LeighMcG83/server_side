@@ -21,11 +21,11 @@ router.get('/', function (req, res) {
         // console.table('here');
         // console.table(req.cookies);
         var dateLastVisit = req.signedCookies.tracking;
-        message = "Welcome back";
+        message = "Welcome back, you last visited on : " + dateLastVisit;
     }
 
     var currentDate = new Date();
-    res.cookie('tracking', currentDate.toString(), {
+    res.cookie('tracking', currentDate.toUTCString(), {
         signed: true
     });
 
