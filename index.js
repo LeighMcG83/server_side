@@ -17,14 +17,13 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
-
 app.get('/personlist', (req, res) =>
     res.render('personlist', {
         personlist: data
     }));
 
 // middleware 
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(cookieParser("una is great"));
 app.use('/', home);
 app.use('/staff', staff);

@@ -10,10 +10,15 @@ router.get('/', function (req, res) {
     if (req.cookies.tracking) {
         // console.table('here');
         // console.table(req.cookies);
+        var dateLastVisit = req.signedCookies.tracking;
         message = "Welcome back";
     }
 
-    res.cookie('tracking', 'Look a cookie');
+    var currentDate = new Date();
+    res.cookie('tracking', currentDate.toString(), {
+        signed: true
+    });
+
     res.render('home', {
         "message": message
     });
