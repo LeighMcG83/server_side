@@ -3,9 +3,19 @@ const express = require('express');
 const router = express.Router();
 
 
+
 // route handlers
 router.get('/', function (req, res) {
     var message = "";
+    const linksForHome = [{
+            url: 'itsligo.ie',
+            text: 'IT Sligo Home Page'
+        },
+        {
+            url: 'irishtimes.ie',
+            text: 'The Irish Times'
+        }
+    ];
     console.table(req.cookies);
     if (req.cookies.tracking) {
         // console.table('here');
@@ -20,18 +30,28 @@ router.get('/', function (req, res) {
     });
 
     res.render('home', {
-        "message": message
+        "message": message,
+        "links": linksForHome
     });
 });
 
 router.get('/about', function (req, res) {
-    res.render('about');
+    const linksForAbout = [{
+            url: 'linked.com',
+            text: 'LinkedIn'
+        },
+        {
+            url: 'behance.com',
+            text: 'Behance'
+        }
+    ];
+    res.render('about', {
+        "links": linksForAbout
+    });
+
+    router.get('/contact', function (req, res) {
+        res.render('contact');
+    });
 });
-
-router.get('/contact', function (req, res) {
-    res.render('contact');
-});
-
-
 // export the router
 module.exports = router;

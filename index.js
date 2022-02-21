@@ -17,6 +17,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
+
 app.get('/personlist', (req, res) =>
     res.render('personlist', {
         personlist: data
