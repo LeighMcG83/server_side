@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
         }
     ];
     console.table(req.cookies);
-    if (req.cookies.tracking) {
+    if (req.signedCookies.tracking) {
         // console.table('here');
         // console.table(req.cookies);
         var dateLastVisit = req.signedCookies.tracking;
