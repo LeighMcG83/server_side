@@ -4,6 +4,9 @@ const app = express();
 const port = 3000;
 const cookieParser = require('cookie-parser');
 
+// import
+// const newsMiddleware = require('express/lib/respnse');
+
 // import the router from the home.js file
 const home = require('./routes/home');
 const staff = require('./routes/staff');
@@ -17,11 +20,6 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
-
-app.get('/personlist', (req, res) =>
-    res.render('personlist', {
-        personlist: data
-    }));
 
 // middleware 
 // app.use(cookieParser());
@@ -41,7 +39,5 @@ app.use(function (err, req, res, next) {
     res.status(500);
     res.render('500');
 });
-
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!!`));

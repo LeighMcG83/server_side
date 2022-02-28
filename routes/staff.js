@@ -11,13 +11,13 @@ var data = {
         "imageurl": "/images/logo.png",
         "hobbies": ["Jokes", "Gags", "Stand up"]
     },
-    "leigh": {
+    "Leigh": {
         "name": "Leigh",
         "dob": "09/11/1983",
         "imageurl": "/images/batman.jpg",
         "hobbies": ["Reading", "Philosophy", "Design"]
     },
-    "paddy": {
+    "Paddy": {
         "name": "Paddy",
         "dob": "01/12/2022",
         "imageurl": "/images/paddy.jpg",
@@ -25,13 +25,20 @@ var data = {
     }
 };
 
+router.get('/', (req, res) =>
+    res.render('staff', {
+        staff: data
+    }));
+
 
 router.get('/:name', (req, res) => {
     var name = req.params.name;
-   
-    if (name === "") {
+     
+    // console.log(name);
+    // console.table(data[name]);
+    if (!data[name]) {
         res.status(404);
-        res.render('/staff/404/');
+        res.render('404');
     }
     else{
         res.render('person', {
@@ -39,15 +46,5 @@ router.get('/:name', (req, res) => {
         });
     }
 });
-
-router.get('/personlist', (req, res) =>
-    res.render('personlist', {
-        personlist: data
-    }));
-
-router.get('/', (req, res) =>
-    res.render('staff', {
-        staff: data
-    }));
 
 module.exports = router;
