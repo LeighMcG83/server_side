@@ -11,13 +11,13 @@ var data = {
         "imageurl": "/images/logo.png",
         "hobbies": ["Jokes", "Gags", "Stand up"]
     },
-    "leigh": {
+    "Leigh": {
         "name": "Leigh",
         "dob": "09/11/1983",
         "imageurl": "/images/batman.jpg",
         "hobbies": ["Reading", "Philosophy", "Design"]
     },
-    "paddy": {
+    "Paddy": {
         "name": "Paddy",
         "dob": "01/12/2022",
         "imageurl": "/images/paddy.jpg",
@@ -29,6 +29,7 @@ router.get('/', (req, res) =>
     res.render('staff', {
         staff: data
     }));
+<<<<<<< HEAD
 
 router.get('/:name', (req, res) => {
     var name = req.params.name;
@@ -37,14 +38,31 @@ router.get('/:name', (req, res) => {
         res.status(404);
         res.render('/staff/404/');
     } else {
+=======
+
+
+router.get('/:name', (req, res) => {
+    var name = req.params.name;
+     
+    // console.log(name);
+    // console.table(data[name]);
+    if (!data[name]) {
+        res.status(404);
+        res.render('404');
+    }
+    else{
+>>>>>>> 1e9dec648b28f3961ba1c6f125e44a8dd32b8eed
         res.render('person', {
             person: data[name]
         });
     }
 });
 
+<<<<<<< HEAD
 router.get('/addnew', (req, res) => {
     res.render('personform')
 })
 
+=======
+>>>>>>> 1e9dec648b28f3961ba1c6f125e44a8dd32b8eed
 module.exports = router;
