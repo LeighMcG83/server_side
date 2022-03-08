@@ -25,29 +25,26 @@ var data = {
     }
 };
 
+router.get('/', (req, res) =>
+    res.render('staff', {
+        staff: data
+    }));
 
 router.get('/:name', (req, res) => {
     var name = req.params.name;
-   
+
     if (name === "") {
         res.status(404);
         res.render('/staff/404/');
-    }
-    else{
+    } else {
         res.render('person', {
             person: data[name]
         });
     }
 });
 
-router.get('/personlist', (req, res) =>
-    res.render('personlist', {
-        personlist: data
-    }));
-
-router.get('/', (req, res) =>
-    res.render('staff', {
-        staff: data
-    }));
+router.get('/addnew', (req, res) => {
+    res.render('personform')
+})
 
 module.exports = router;
