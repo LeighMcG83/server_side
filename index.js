@@ -3,7 +3,27 @@ const res = require('express/lib/response');
 const app = express();
 const port = 3000;
 const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
 
+
+mongoose.connect(connectionString, {
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
+  }).
+  catch ( error => {
+    console.log('Database connection refused' + error);
+    process.exit(2);
+  })
+  
+  const db = mongoose.connection;
+  
+  db.on('error', console.error.bind(console, 'connection error:'));
+  
+  db.once('open', () => {
+    console.log("DB connected")
+  });
+
+  
 // import
 // const newsMiddleware = require('express/lib/respnse');
 
