@@ -21,13 +21,28 @@ readStaff = async (options={}) =>
    else
        return undefined;
    
-}
+};
 
 createStaff = async (data) => {
     let staffDoc = new Staff(data);
     await staffDoc.save();
-}
+};
+
+deleteStaff = async (name) => {
+    const staff = await Staff.findOne({ name: name });
+    await staff.remove();
+
+};
+
+updateStaff = async (data) => {
+    var id = data._id;
+    console.log(id);
+    console.table(data);
+    await Staff.findByIdAndUpdate({_id: id}, {...data});
+};
 
 
 exports.readStaff = readStaff;
 exports.createStaff = createStaff;
+exports.updateStaff = updateStaff;
+exports.deleteStaff = deleteStaff;
