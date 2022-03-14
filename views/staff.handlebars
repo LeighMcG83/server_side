@@ -1,9 +1,11 @@
-<div class="card">
-  <ul class="">
-    {{#each staff}}
-    <li class="">
-      <a class="active" href="/staff/{{this.name}}">{{this.name}}</a>
-    </li>
-    {{/each}}
-  </ul>
+<div class="row container">
+  <div class="card">
+    <ul class="card-body col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      {{#each staff}}
+      <li class="">
+        <a class="active card-title" href="/staff/{{this.name}}">{{this.name}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>

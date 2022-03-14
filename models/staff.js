@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const staffSchema = new mongoose.Schema({
     name: String,
-    dob: Date,
+    dob: String,
     imageurl: String,
     hobbies: [String]
-})
+});
 
-const Staff = mongoose.model('Staff', staffSchema)
+const Staff = mongoose.model('Staff', staffSchema);
 
 readStaff = async (options={}) =>
   {
@@ -23,4 +23,11 @@ readStaff = async (options={}) =>
    
 }
 
+createStaff = async (data) => {
+    let staffDoc = new Staff(data);
+    await staffDoc.save();
+}
+
+
 exports.readStaff = readStaff;
+exports.createStaff = createStaff;
