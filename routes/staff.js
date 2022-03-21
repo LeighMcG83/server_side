@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
 
     res.render('listing', {
         personlist: staff
-    })
+    });
 
-})
+});
 
 
 
@@ -27,21 +27,24 @@ router.get('/:name/edit', async (req, res) => {
 
     var name = req.params.name;
 
-    const person = await readStaff({'name': name});
+    const person = await readStaff({
+        'name': name
+    });
 
     if (!person) {
         console.log('404 because person doesn\'t exist');
         res.render('404');
-    }
-    else {
-        res.render('staffeditform', { person: person });
+    } else {
+        res.render('staffeditform', {
+            person: person
+        });
     }
 });
 
-router.post('/:name/edit', async (req,res) =>{
+router.post('/:name/edit', async (req, res) => {
 
     await updateStaff(req.body);
-    
+
     res.redirect(303, '/staff');
 
 });
@@ -54,15 +57,15 @@ router.post('/addnew', async (req, res) => {
     // being saved to the database.
 
     await createStaff(req.body);
-
+    console.table(req.body);
     res.redirect(303, '/staff');
 
 });
 
+
 router.get('/addnew', async (req, res) => {
     res.render('personform');
 });
-
 
 
 router.get('/:name', async (req, res) => {
@@ -93,18 +96,21 @@ router.get('/:name/delete', async (req, res) => {
 
 });
 
-router.get('/:name/edit', async (req,res) => {
+router.get('/:name/edit', async (req, res) => {
 
     var name = req.params.name;
 
-    const person = await readStaff({'name': name})
+    const person = await readStaff({
+        'name': name
+    });
 
     if (!person) {
         console.log('404 because person doesn\'t exist');
         res.render('404');
-    }
-    else {
-        res.render('staffeditform', { person: person });
+    } else {
+        res.render('personeditform', {
+            person: person
+        });
     }
 });
 
