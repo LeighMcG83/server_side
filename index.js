@@ -5,11 +5,10 @@ const app = express();
 const port = 3000;
 const cookieParser = require('cookie-parser');
 
-
 const connectionString = 'mongodb://127.0.0.1:27017/SS2022';
 
 // import
-// const newsMiddleware = require('express/lib/respnse');
+// const newsMiddleware = require('express/lib/response');
 
 // import the router from the home.js file
 const home = require('./routes/home');
@@ -23,6 +22,9 @@ var handlebars = require('express-handlebars')
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
+
+
+app.use(express.urlencoded({ extended: true }))
 
 mongoose.connect(connectionString, {
     "useNewUrlParser": true,
@@ -47,6 +49,7 @@ db.once('open', () => {
 app.use(cookieParser("una is great"));
 app.use('/', home);
 app.use('/staff', staff);
+
 
 // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {

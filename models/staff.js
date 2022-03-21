@@ -9,18 +9,13 @@ const staffSchema = new mongoose.Schema({
 
 const Staff = mongoose.model('Staff', staffSchema);
 
-readStaff = async (options={}) =>
-  {
+readStaff = async (options = {}) => {
     if (Object.entries(options).length == 0)
-       return Staff.find().lean();
-   
-   else if (options.name)
-   
-       return Staff.findOne(options).lean();
-   
-   else
-       return undefined;
-   
+        return Staff.find().lean();
+    else if (options.name)
+        return Staff.findOne(options).lean();
+    else
+        return undefined;
 };
 
 createStaff = async (data) => {
@@ -29,16 +24,21 @@ createStaff = async (data) => {
 };
 
 deleteStaff = async (name) => {
-    const staff = await Staff.findOne({ name: name });
+    const staff = await Staff.findOne({
+        name: name
+    });
     await staff.remove();
-
 };
 
 updateStaff = async (data) => {
     var id = data._id;
     console.log(id);
     console.table(data);
-    await Staff.findByIdAndUpdate({_id: id}, {...data});
+    await Staff.findByIdAndUpdate({
+        _id: id
+    }, {
+        ...data
+    });
 };
 
 

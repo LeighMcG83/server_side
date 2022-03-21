@@ -1,26 +1,21 @@
+<form method="POST">
 
-// to edit we first need to fetch the data so we can display in on
-// a form to be edited
+    <div class="form-group">
+        <label for='firstname'>First Name</label>
+        <input type=text id='firstname' name='name' class='form-control' value={{person.name}}>
+    </div>
+    <div class="form-group">
+        <label for='dob'>Date of Birth</label>
+        <input type=text id='dob' name='dob' class='form-control' value={{person.dob}}>
+    </div>
 
-router.get('/:name/edit', async (req, res) => {
+    <div>
+        {{!-- This hidden element lets us use the document id --}}
+        <input type="hidden" id="id" name="_id" value="{{person._id}}" />
+        <button type=submit class="btn btn-primary">Save Changes</button>
+        <a href='/staff/{{person.name}}'>
+            <button type=button class="btn btn-outline-danger">Cancel</button>
+        </a>
+    </div>
 
-    var name = req.params.name;
-
-    const person = await readStaff({'name': name});
-
-    if (!person) {
-        console.log('404 because person doesn\'t exist');
-        res.render('404');
-    }
-    else {
-        res.render('staffeditform', { person: person });
-    }
-})
-
-router.post('/:name/edit', async (req,res) =>{
-
-    await updateStaff(req.body);
-    
-    res.redirect(303, '/staff');
-
-})
+</form>
