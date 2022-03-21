@@ -41,10 +41,10 @@ router.get('/:name/edit', async (req, res) => {
     }
 });
 
-router.post('/:name/edit', async (req, res) => {
+router.post('/:name/edit', async (req,res) =>{
 
     await updateStaff(req.body);
-
+    
     res.redirect(303, '/staff');
 
 });
@@ -100,17 +100,14 @@ router.get('/:name/edit', async (req, res) => {
 
     var name = req.params.name;
 
-    const person = await readStaff({
-        'name': name
-    });
+    const person = await readStaff({'name': name});
 
     if (!person) {
         console.log('404 because person doesn\'t exist');
         res.render('404');
-    } else {
-        res.render('personeditform', {
-            person: person
-        });
+    }
+    else {
+        res.render('staffeditform', { person: person });
     }
 });
 
