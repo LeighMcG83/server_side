@@ -8,8 +8,8 @@ const cookieParser = require('cookie-parser');
 const connectionString = 'mongodb://127.0.0.1:27017/SS2022';
 
 
-// const {flashMiddleware} = require('./lib/middleware.js');
-// app.use(flashMiddleware);
+const {flashMiddleware} = require('./lib/flashMiddleware.js');
+app.use(flashMiddleware);
 
 
 session = require('express-session');

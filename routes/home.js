@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
             text: 'The Irish Times'
         }
     ];
-    console.table(req.cookies);
+    // console.table(req.cookies);
     if (req.signedCookies.tracking) {
         // console.table('here');
         // console.table(req.cookies);
