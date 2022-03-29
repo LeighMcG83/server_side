@@ -7,8 +7,23 @@ const cookieParser = require('cookie-parser');
 
 const connectionString = 'mongodb://127.0.0.1:27017/SS2022';
 
+
+const {flashMiddleware} = require('./lib/middleware.js');
+app.use(flashMiddleware);
+
+
+session = require('express-session');
+
+app.use(session(
+    {secret: "una is great!!", 
+    cookie: { maxage: 6000},
+    resave: false,
+    saveUninitialized: false
+  }));
+
+
 // import
-// const newsMiddleware = require('express/lib/response');
+const newsMiddleware = require('express/lib/response');
 
 // import the router from the home.js file
 const home = require('./routes/home');
@@ -24,7 +39,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(connectionString, {
     "useNewUrlParser": true,

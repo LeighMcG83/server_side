@@ -1,4 +1,6 @@
+{{#if person.name}}
 <h2 class="h2 section-heading"> All about {{person.name}}</h2>
+{{/if}}
 
 <div class="card" style="width: 20rem;">
   <img src={{person.imageurl}} class="card-img-top" alt="Iimage of a person">
@@ -19,6 +21,7 @@
       <li class="list-group-item">{{this}}</li>
       {{/each}}
     </ul>
+
     <a href='{{person.name}}/edit'>
       <button type="button" class="btn btn-primary">Edit</button></a>
 

@@ -23,22 +23,18 @@ router.get('/', async (req, res) => {
 // to edit we first need to fetch the data so we can display in on
 // a form to be edited
 
-router.get('/:name/edit', async (req, res) => {
+router.get('/', async (req, res) => {
 
-    var name = req.params.name;
+    const staff = await readStaff();
+    var newName;
 
-    const person = await readStaff({
-        'name': name
-    });
-
-    if (!person) {
-        console.log('404 because person doesn\'t exist');
-        res.render('404');
-    } else {
-        res.render('staffeditform', {
-            person: person
-        });
+    if (req.session.staffdata) {
+        newName = req.session.staffdata.name;
     }
+    else {
+        newName = "";
+    }
+    res.render('listing', { personlist: staff, newName : newName });
 });
 
 router.post('/:name/edit', async (req,res) =>{
@@ -57,10 +53,11 @@ router.post('/addnew', async (req, res) => {
     // being saved to the database.
 
     await createStaff(req.body);
-    console.table(req.body);
+    req.session.staffdata = { name: req.body.name};
     res.redirect(303, '/staff');
 
 });
+
 
 
 router.get('/addnew', async (req, res) => {

@@ -22,6 +22,14 @@
 
 </head>
 
+{{#if flash}}
+  <div class="alert alert-dismissible alert-{{flash.type}} " role="alert">
+    <button type="button" class="btn-close" 
+      data-bs-dismiss="alert" aria-hidden="true"></button>
+    <strong>{{flash.intro}}</strong> {{{flash.message}}}
+  </div>
+{{/if}}
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,7 +62,16 @@
   </header>
 
   <main>
+    {{#if flash}}
+      <div class="alert alert-dismissible alert-{{flash.type}} " role="alert">
+        <button type="button" class="btn-close" 
+          data-bs-dismiss="alert" aria-hidden="true"></button>
+        <strong>{{flash.intro}}</strong> {{{flash.message}}}
+      </div>
+    {{/if}}
+
     {{{body}}}
+    
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
