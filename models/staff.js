@@ -33,7 +33,7 @@ deleteStaff = async (name) => {
 updateStaff = async (data) => {
     var id = data._id;
     console.log(id);
-    console.table(data);
+    // console.table(data);
     await Staff.findByIdAndUpdate({
         _id: id
     }, {
