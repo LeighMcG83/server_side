@@ -1,16 +1,16 @@
+// import
 const express = require('express');
 const mongoose = require('mongoose');
 const res = require('express/lib/response');
 const app = express();
 const port = 3000;
 const cookieParser = require('cookie-parser');
-
 const connectionString = 'mongodb://127.0.0.1:27017/SS2022';
-
-
 const {flashMiddleware} = require('./lib/middleware.js');
-app.use(flashMiddleware);
-
+const newsMiddleware = require('express/lib/response');
+// import the router from the home.js file
+const home = require('./routes/home');
+const staff = require('./routes/staff');
 
 session = require('express-session');
 
@@ -21,14 +21,6 @@ app.use(session(
     saveUninitialized: false
   }));
 
-
-// import
-const newsMiddleware = require('express/lib/response');
-
-// import the router from the home.js file
-const home = require('./routes/home');
-const staff = require('./routes/staff');
-
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
     .create({
@@ -37,9 +29,8 @@ var handlebars = require('express-handlebars')
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
-
-
 app.use(express.urlencoded({ extended: true }));
+app.use(flashMiddleware);
 
 mongoose.connect(connectionString, {
     "useNewUrlParser": true,
