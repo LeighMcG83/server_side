@@ -103,17 +103,11 @@ router.get("/:name/delete", async (req, res) => {
   var name = req.params.name;
 
   await deleteStaff(name);
-
-  res.redirect(303, "/staff");
-});
-
-router.post("/:name/delete", async (req, res) => {
-  await deleteStaff(req.body.name);
-
   req.session.flash = {
     type: "success",
     intro: "Data Deleted:",
-    message: "Data for <strong>" + req.body.name + "</strong> has been deleted",
+    message:
+      "Data for <strong>" + req.params.name + "</strong> has been deleted",
   };
 
   res.redirect(303, "/staff");

@@ -21,11 +21,16 @@ app.use(session(
     saveUninitialized: false
   }));
 
-// set up handlebars view engine
-var handlebars = require('express-handlebars')
-    .create({
-        defaultLayout: 'main'
-    });
+// set up handlebars view engine with helpers
+var handlebars = require('express-handlebars').create({
+    defaultLayout: 'main',
+    helpers: {
+        urlencodetext: function (text){
+            return encodeURI(text);
+        }
+    }
+});
+
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
