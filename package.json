@@ -28,7 +28,7 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "g": "^2.0.1",
-    "mongoose": "^6.2.9"
+    "mongoose": "^6.4.6"
   },
   "devDependencies": {
     "jshint": "^2.13.4",
