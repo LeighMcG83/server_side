@@ -24,7 +24,7 @@
   "homepage": "https://github.com/LeighMcG83/server-side#readme",
   "dependencies": {
     "cookie-parser": "^1.4.6",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "g": "^2.0.1",
